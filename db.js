@@ -22,6 +22,7 @@ const sync = async () => {
     `;
   await client.query(SQL);
   createDepartment({ name: "bar" });
+  createDepartment({ name: "bazz" });
   createUser({ name: "foo" });
 };
 
@@ -30,7 +31,7 @@ const createUser = async ({ name }) => {
   return (await client.query(SQL, [name])).rows[0];
 };
 const createDepartment = async ({ name }) => {
-  const SQL = `INSERT INTO deparments(name) values($2) returning *`;
+  const SQL = `INSERT INTO departments(name) values($1) returning *`;
   return (await client.query(SQL, [name])).rows[0];
 };
 const findAllUsers = async () => {

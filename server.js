@@ -17,7 +17,7 @@ app.get("/api/users", async (req, res, next) => {
 });
 
 app.get("/api/departments", async (req, res, next) => {
-  await db.findAllDepartments().then(departments => console.log(departments));
+  await db.findAllDepartments().then(departments => res.send(departments));
 });
 
 db.sync().then(() => {
