@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const uuid = require("uuid");
 const pg = require("pg");
 
